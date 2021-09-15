@@ -1,12 +1,24 @@
-@pipeline {
+pipeline {
     agent any
     tools {
-        maven "maven-principal"
+      maven "maven-nodo-principal"
     }
-    stage ('Build') {
-        steps {
-            dir ('maven-adderapp') {
-                sh 'mvn -DskipTests clean package'
+    stages {
+        stage('Build') {
+            steps {
+                dir('jenkins/ejercicios/cicd/infra-ii') {
+                    sh 'mvn -DskipTests clean package'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
