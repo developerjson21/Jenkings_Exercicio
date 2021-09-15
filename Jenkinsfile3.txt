@@ -14,6 +14,9 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+		dir('jenkins/ejercicios/cicd/infra-ii'){
+                    sh 'mvn_test'
+                }
             }
         }
         stage('Deploy') {
