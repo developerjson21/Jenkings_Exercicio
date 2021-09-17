@@ -15,7 +15,7 @@ pipeline {
             steps {
                 echo 'Testing..'
 		dir('maven_project/my-app'){
-                    sh 'mvn_test'
+                    sh 'mvn test'
                 }
             }
         }
